@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Check, ChevronLeft, Send, Sparkles, Loader2 } from 'lucide-react';
+import { ArrowRight, Check, ChevronLeft, Send, Sparkles, Loader2, Calendar } from 'lucide-react';
 import { Magnetic } from './Layout';
 import { useLocation } from 'react-router-dom';
 
@@ -96,6 +96,26 @@ export const ConciergeForm = () => {
 
   const progress = ((step + 1) / STEPS.length) * 100;
 
+  const getGoogleCalendarUrl = () => {
+    const text = encodeURIComponent(`Atendimento Concierge - Clínica Seraphina`);
+    const details = encodeURIComponent(
+      `Olá ${formData.name},\n\nEste é um lembrete para o seu atendimento inicial com o concierge da Clínica Seraphina.\n\nInteresse: ${formData.interest}\nPreferência de contato: ${formData.preference}\n\nNossa equipe entrará em contato em breve para confirmar o horário exato da sua experiência.`
+    );
+    
+    // Set date to tomorrow at 10:00 AM as a placeholder
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(10, 0, 0);
+    
+    const end = new Date(tomorrow);
+    end.setHours(11, 0, 0);
+
+    const formatDate = (date: Date) => date.toISOString().replace(/-|:|\.\d\d\d/g, "");
+    const dates = `${formatDate(tomorrow)}/${formatDate(end)}`;
+
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&details=${details}&dates=${dates}`;
+  };
+
   if (isSending) {
     return (
       <motion.div
@@ -134,12 +154,25 @@ export const ConciergeForm = () => {
             Nossa equipe de concierge entrará em contato em breve para confirmar os detalhes do seu agendamento exclusivo.
           </p>
         </div>
-        <button 
-          onClick={() => { setIsSubmitted(false); setStep(0); }}
-          className="text-xs font-bold tracking-widest uppercase text-brand-primary hover:underline"
-        >
-          Enviar outra solicitação
-        </button>
+        
+        <div className="flex flex-col items-center gap-4 pt-6">
+          <a 
+            href={getGoogleCalendarUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 bg-[#4285F4] text-white px-8 py-4 rounded-full font-bold text-xs tracking-[0.1em] uppercase hover:bg-[#3367D6] transition-colors w-full max-w-xs justify-center"
+          >
+            <Calendar size={18} />
+            Salvar no Google Calendar
+          </a>
+
+          <button 
+            onClick={() => { setIsSubmitted(false); setStep(0); }}
+            className="text-xs font-bold tracking-widest uppercase text-brand-primary hover:underline mt-4"
+          >
+            Enviar outra solicitação
+          </button>
+        </div>
       </motion.div>
     );
   }
