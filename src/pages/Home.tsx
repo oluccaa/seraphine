@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Section, Container, FadeIn, TextReveal, Magnetic, ParallaxImage } from '../components/Layout';
 import { SERVICES, TESTIMONIALS } from '../constants';
-import { ArrowRight, Sparkles, ChevronDown, Quote, Star, MessageCircle, Coffee, Stethoscope, HeartPulse } from 'lucide-react';
+import { ArrowRight, Sparkles, ChevronDown, Quote, Star, MessageCircle, Coffee, Stethoscope, HeartPulse, Instagram, Youtube, Facebook, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
 
@@ -260,6 +260,79 @@ export const Home = () => {
           <FadeIn delay={0.2}>
             <InteractiveJourney />
           </FadeIn>
+        </Container>
+      </Section>
+
+      {/* Social Media Section */}
+      <Section className="bg-white overflow-hidden">
+        <Container>
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+            <FadeIn>
+              <div className="space-y-4">
+                <p className="text-xs font-bold tracking-[0.4em] uppercase text-brand-primary/50">Conecte-se</p>
+                <h2 className="text-4xl md:text-6xl font-light tracking-tighter">Seraphina na Mídia</h2>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <div className="flex gap-4">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-brand-primary/20 flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white transition-colors">
+                  <Instagram size={20} />
+                </a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-brand-primary/20 flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white transition-colors">
+                  <Youtube size={20} />
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-brand-primary/20 flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white transition-colors">
+                  <Facebook size={20} />
+                </a>
+              </div>
+            </FadeIn>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* YouTube Highlight */}
+            <FadeIn delay={0.1}>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="group relative block h-[400px] rounded-[2.5rem] overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1559839734-2b71f153678f?auto=format&fit=crop&q=80&w=1200" 
+                  alt="YouTube Video" 
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+                  <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                    <Play size={32} className="ml-2 text-white" fill="currentColor" />
+                  </div>
+                  <p className="text-xs font-bold tracking-[0.2em] uppercase mb-2">Novo Episódio</p>
+                  <h3 className="text-2xl md:text-3xl font-serif text-center px-6">A Ciência da Longevidade Feminina</h3>
+                </div>
+              </a>
+            </FadeIn>
+
+            {/* Instagram Grid */}
+            <FadeIn delay={0.2}>
+              <div className="grid grid-cols-2 gap-4 h-[400px]">
+                {[
+                  "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=600",
+                  "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600",
+                  "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=600",
+                  "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=600"
+                ].map((src, idx) => (
+                  <a key={idx} href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="group relative block rounded-3xl overflow-hidden">
+                    <img 
+                      src={src} 
+                      alt="Instagram Post" 
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-brand-primary/0 group-hover:bg-brand-primary/40 transition-colors duration-500 flex items-center justify-center">
+                      <Instagram size={24} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
         </Container>
       </Section>
 
