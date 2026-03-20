@@ -8,6 +8,7 @@ import { Services } from './pages/Services';
 import { Contact } from './pages/Contact';
 import { SmoothScroll } from './components/SmoothScroll';
 import { CustomCursor } from './components/CustomCursor';
+import { WhatsAppButton } from './components/WhatsAppButton';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -23,7 +24,7 @@ function App() {
       <ScrollToTop />
       <SmoothScroll />
       <CustomCursor />
-      <div className="min-h-screen bg-brand-secondary font-sans selection:bg-brand-primary selection:text-white">
+      <div className="relative min-h-screen bg-brand-secondary font-sans selection:bg-brand-primary selection:text-white">
         <Navbar />
         <main>
           <Routes>
@@ -34,6 +35,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <WhatsAppButton />
       </div>
     </Router>
   );

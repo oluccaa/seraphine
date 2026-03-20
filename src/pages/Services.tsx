@@ -1,18 +1,20 @@
 import React from 'react';
 import { Section, Container, FadeIn, ParallaxImage } from '../components/Layout';
 import { SERVICES } from '../constants';
+import { ASSETS } from '../assets';
+import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 export const Services = () => {
   const getServiceImage = (id: string) => {
     const images: Record<string, string> = {
-      'regen': 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1000',
-      'obstetrics': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1000',
-      'surgery': 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=1000',
-      'checkup': 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000',
+      'ginecologia-geral': ASSETS.images.services['ginecologia-geral'],
+      'obstetricia': ASSETS.images.services['obstetricia'],
+      'cirurgia-minimamente-invasiva': ASSETS.images.services['cirurgia-minimamente-invasiva'],
+      'menopausa': ASSETS.images.services['menopausa'],
     };
-    return images[id] || `https://images.unsplash.com/photo-1559839734-2b71f153678f?auto=format&fit=crop&q=80&w=1000`;
+    return images[id] || ASSETS.images.services.default;
   };
 
   return (
@@ -62,9 +64,12 @@ export const Services = () => {
                         </li>
                       ))}
                     </ul>
-                    <button className="bg-brand-primary text-white px-8 py-4 rounded-full font-bold text-xs tracking-widest uppercase self-start hover:scale-105 transition-transform">
+                    <Link 
+                      to="/contato" 
+                      className="bg-brand-primary text-white px-8 py-4 rounded-full font-bold text-xs tracking-widest uppercase self-start hover:scale-105 transition-transform inline-block"
+                    >
                       Agendar Consulta
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </FadeIn>

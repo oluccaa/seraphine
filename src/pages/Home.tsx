@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Section, Container, FadeIn, TextReveal, Magnetic, ParallaxImage } from '../components/Layout';
 import { SERVICES, TESTIMONIALS } from '../constants';
+import { ASSETS } from '../assets';
 import { ArrowRight, Sparkles, ChevronDown, Quote, Star, MessageCircle, Coffee, Stethoscope, HeartPulse, Instagram, Youtube, Facebook, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
@@ -29,7 +30,7 @@ export const Home = () => {
               playsInline
               className="w-full h-full object-cover opacity-40"
             >
-              <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=727f715ad5905604ccd4b948d7b571685c1a45e0&profile_id=165&oauth2_token_id=57447761" type="video/mp4" />
+              <source src={ASSETS.videos.hero} type="video/mp4" />
             </video>
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#0a0a0a]" />
@@ -48,16 +49,6 @@ export const Home = () => {
 
         <Container className="text-center">
           <div className="space-y-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white/80 text-[10px] font-bold tracking-[0.3em] uppercase"
-            >
-              <Sparkles size={12} className="text-brand-accent" />
-              A Nova Era da Ginecologia
-            </motion.div>
-
             <TextReveal 
               text="O CUIDADO QUE TRANSCENDE" 
               className="text-5xl md:text-9xl font-light text-white leading-[0.9] tracking-tighter max-w-5xl mx-auto"
@@ -130,7 +121,7 @@ export const Home = () => {
               <FadeIn delay={0.2}>
                 <div className="relative">
                   <ParallaxImage 
-                    src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=1200" 
+                    src={ASSETS.images.drHenrique} 
                     alt="Dr. Henrique Seraphina" 
                     className="aspect-[4/5] rounded-[4rem] shadow-2xl"
                   />
@@ -195,7 +186,7 @@ export const Home = () => {
             <FadeIn className="md:col-span-2 md:row-span-2" delay={0.1}>
               <div className="relative h-full w-full group overflow-hidden rounded-[2.5rem]">
                 <img 
-                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200" 
+                  src={ASSETS.images.atmosphere.main} 
                   alt="Ambiente de Luxo Seraphina" 
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
                   referrerPolicy="no-referrer" 
@@ -211,7 +202,7 @@ export const Home = () => {
             <FadeIn className="md:col-span-2 md:row-span-1" delay={0.2}>
               <div className="relative h-full w-full group overflow-hidden rounded-[2.5rem]">
                 <img 
-                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" 
+                  src={ASSETS.images.atmosphere.tech} 
                   alt="Tecnologia Médica Avançada" 
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
                   referrerPolicy="no-referrer" 
@@ -223,7 +214,7 @@ export const Home = () => {
             <FadeIn className="md:col-span-1 md:row-span-1" delay={0.3}>
               <div className="relative h-full w-full group overflow-hidden rounded-[2.5rem]">
                 <img 
-                  src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=1200" 
+                  src={ASSETS.images.atmosphere.wellness} 
                   alt="Bem-estar e Vitalidade" 
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
                   referrerPolicy="no-referrer" 
@@ -235,7 +226,7 @@ export const Home = () => {
             <FadeIn className="md:col-span-1 md:row-span-1" delay={0.4}>
               <div className="relative h-full w-full group overflow-hidden rounded-[2.5rem]">
                 <img 
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1200" 
+                  src={ASSETS.images.atmosphere.care} 
                   alt="Atendimento Personalizado" 
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
                   referrerPolicy="no-referrer" 
@@ -293,7 +284,7 @@ export const Home = () => {
             <FadeIn delay={0.1}>
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="group relative block h-[400px] rounded-[2.5rem] overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1559839734-2b71f153678f?auto=format&fit=crop&q=80&w=1200" 
+                  src={ASSETS.images.social.youtubeHighlight} 
                   alt="YouTube Video" 
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   referrerPolicy="no-referrer"
@@ -312,12 +303,7 @@ export const Home = () => {
             {/* Instagram Grid */}
             <FadeIn delay={0.2}>
               <div className="grid grid-cols-2 gap-4 h-[400px]">
-                {[
-                  "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=600",
-                  "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600",
-                  "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=600",
-                  "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=600"
-                ].map((src, idx) => (
+                {ASSETS.images.social.instagram.map((src, idx) => (
                   <a key={idx} href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="group relative block rounded-3xl overflow-hidden">
                     <img 
                       src={src} 

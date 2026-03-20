@@ -1,5 +1,6 @@
 import React from 'react';
 import { Section, Container, FadeIn, ParallaxImage, Magnetic } from '../components/Layout';
+import { ASSETS } from '../assets';
 import { Quote, ArrowRight, Award, Heart, Shield, Microscope, Sparkles, Fingerprint } from 'lucide-react';
 
 export const About = () => {
@@ -30,7 +31,7 @@ export const About = () => {
           <div className="lg:col-span-6">
             <FadeIn delay={0.3}>
               <ParallaxImage 
-                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=1000" 
+                src={ASSETS.images.drHenrique} 
                 alt="Dr. Henrique Seraphina" 
                 className="aspect-square rounded-[4rem] shadow-2xl"
               />
@@ -65,7 +66,7 @@ export const About = () => {
         <Container className="grid lg:grid-cols-2 gap-20 items-center">
           <FadeIn>
             <ParallaxImage 
-              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000" 
+              src={ASSETS.images.atmosphere.main} 
               alt="Ambiente Clínico Seraphina" 
               className="aspect-[16/9] rounded-[3rem] shadow-xl"
             />

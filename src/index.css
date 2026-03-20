@@ -12,8 +12,8 @@
 }
 
 @layer base {
-  body {
-    @apply bg-brand-secondary text-brand-text font-sans antialiased overflow-x-hidden;
+  html, body {
+    @apply relative bg-brand-secondary text-brand-text font-sans antialiased overflow-x-hidden;
     cursor: none;
   }
 
