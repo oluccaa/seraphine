@@ -28,6 +28,8 @@ export const Home = () => {
               loop
               muted
               playsInline
+              preload="auto"
+              poster={ASSETS.images.atmosphere.main}
               className="w-full h-full object-cover opacity-40"
             >
               <source src={ASSETS.videos.hero} type="video/mp4" />

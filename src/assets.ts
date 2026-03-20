@@ -1,6 +1,6 @@
 export const ASSETS = {
   videos: {
-    hero: "https://videocdn.cdnpk.net/videos/6b89beac-7ac1-4c7f-a665-b951d92529ca/horizontal/previews/clear/large.mp4?token=exp=1773970749~hmac=109783af3321f2b034e695f16a58c45cb3b166ff2e1f556fc8cb6c030dcadf25",
+    hero: "https://player.vimeo.com/external/459389137.sd.mp4?s=964453d0c9f97ad4b698abc74fb9746bb1e24071&profile_id=165&oauth2_token_id=57447761",
   },
   images: {
     drHenrique: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=1200",
